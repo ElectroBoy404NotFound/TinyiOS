@@ -11,8 +11,6 @@ jobs:
         run: |
           git clone https://github.com/ElectroBoy404NotFound/TinyiOS
           cd TinyiOS
-          rm -rf newlib
-          git submodule update --init --recursive
           sed -i '' "s/-Werror //" Makefile
           make -j$(sysctl -n hw.logicalcpu)
       - name: Upload
