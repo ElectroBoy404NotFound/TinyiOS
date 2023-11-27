@@ -1971,7 +1971,7 @@ void usb_init(void)
     }
     else task_register(&usb_task, usb_main);
     enable_interrupts();
-    command_register("synopsys", "prints a synopsysotg register dump", USB_DEBUG_PRINT_REGISTERS);
+    // command_register("synopsys", "prints a synopsysotg register dump", USB_DEBUG_PRINT_REGISTERS);
 }
 
 static void usb_reap(void)

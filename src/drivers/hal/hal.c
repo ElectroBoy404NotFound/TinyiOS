@@ -221,6 +221,6 @@ void hal_init() {
     if (0 != hal_invoke_service_op(gDeviceTreeDevice, "hal", HAL_LOAD_DTREE_CHILDREN, NULL, 0, NULL, NULL))
         panic("hal_init: HAL_LOAD_DTREE_CHILDREN failed!");
 
-    command_register("lsdev", "prints hal devices tree", lsdev_cmd);
+    // command_register("lsdev", "prints hal devices tree", lsdev_cmd);
 
 }

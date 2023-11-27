@@ -317,8 +317,8 @@ void screen_init() {
 
     basecolor = gFramebuffer[0];
     cache_clean(gFramebuffer, gHeight * gRowPixels * 4);
-    command_register("fbclear", "clears the framebuffer output (minus banner)", screen_clear_all);
-    command_register("fbinvert", "inverts framebuffer contents", screen_invert);
-    command_register("fbinfo", "show framebuffer info", fbinfo);
+    // command_register("fbclear", "clears the framebuffer output (minus banner)", screen_clear_all);
+    // command_register("fbinvert", "inverts framebuffer contents", screen_invert);
+    // command_register("fbinfo", "show framebuffer info", fbinfo);
     scale_factor = 1;
 }
