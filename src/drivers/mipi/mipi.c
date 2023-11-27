@@ -68,31 +68,31 @@ static struct mipi_command command_table[] = {
 };
 
 void mipi_help(const char* cmd, char* args) {
-    iprintf("mipi usage: mipi [subcommand] <subcommand options>\nsubcommands:\n");
-    for (int i=0; i < sizeof(command_table) / sizeof(struct mipi_command); i++) {
-        if (command_table[i].name) {
-            iprintf("%16s | %s\n", command_table[i].name, command_table[i].desc ? command_table[i].desc : "no description");
-        }
-    }
+    // iprintf("mipi usage: mipi [subcommand] <subcommand options>\nsubcommands:\n");
+    // for (int i=0; i < sizeof(command_table) / sizeof(struct mipi_command); i++) {
+    //     if (command_table[i].name) {
+    //         iprintf("%16s | %s\n", command_table[i].name, command_table[i].desc ? command_table[i].desc : "no description");
+    //     }
+    // }
 }
 
 void mipi_cmd(const char* cmd, char* args) {
-    char* arguments = command_tokenize(args, 0x1ff - (args - cmd));
-    struct mipi_command* fallback_cmd = NULL;
-    if (arguments) {
-        for (int i=0; i < sizeof(command_table) / sizeof(struct mipi_command); i++) {
-            if (command_table[i].name && !strcmp("help", command_table[i].name)) {
-                fallback_cmd = &command_table[i];
-            }
-            if (command_table[i].name && !strcmp(args, command_table[i].name)) {
-                command_table[i].cb(args, arguments);
-                return;
-            }
-        }
-        if (*args)
-            iprintf("mipi: invalid command %s\n", args);
-        if (fallback_cmd) return fallback_cmd->cb(cmd, arguments);
-    }
+    // char* arguments = command_tokenize(args, 0x1ff - (args - cmd));
+    // struct mipi_command* fallback_cmd = NULL;
+    // if (arguments) {
+    //     for (int i=0; i < sizeof(command_table) / sizeof(struct mipi_command); i++) {
+    //         if (command_table[i].name && !strcmp("help", command_table[i].name)) {
+    //             fallback_cmd = &command_table[i];
+    //         }
+    //         if (command_table[i].name && !strcmp(args, command_table[i].name)) {
+    //             command_table[i].cb(args, arguments);
+    //             return;
+    //         }
+    //     }
+    //     if (*args)
+    //         iprintf("mipi: invalid command %s\n", args);
+    //     if (fallback_cmd) return fallback_cmd->cb(cmd, arguments);
+    // }
 }
 
 void mipi_init() {

@@ -124,20 +124,20 @@ struct memmap* dt_alloc_memmap(dt_node_t *node, const char *name)
 
 static void dt_cmd_log(const char *cmd, char *args)
 {
-    int argc = 0;
-    const char *argv[4] = { NULL, NULL, NULL, NULL };
+    // int argc = 0;
+    // const char *argv[4] = { NULL, NULL, NULL, NULL };
 
-    for(size_t i = 0; i < 3; ++i)
-    {
-        if(args[0] == '\0')
-        {
-            break;
-        }
-        argv[argc++] = args;
-        args = command_tokenize(args, 0x1ff - (args - cmd));
-    }
+    // for(size_t i = 0; i < 3; ++i)
+    // {
+    //     if(args[0] == '\0')
+    //     {
+    //         break;
+    //     }
+    //     argv[argc++] = args;
+    //     args = command_tokenize(args, 0x1ff - (args - cmd));
+    // }
 
-    dt_print(gDeviceTree, argc, argv);
+    // dt_print(gDeviceTree, argc, argv);
 }
 
 void dt_init(void *mem, size_t size)
@@ -147,7 +147,7 @@ void dt_init(void *mem, size_t size)
         panic("Invalid DeviceTree");
     }
     gDeviceTree = mem;
-    command_register("dt", "parses loaded devicetree", dt_cmd_log);
+    // command_register("dt", "parses loaded devicetree", dt_cmd_log);
 }
 
 // Legacy
