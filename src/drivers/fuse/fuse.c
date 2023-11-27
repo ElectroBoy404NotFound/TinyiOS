@@ -127,23 +127,23 @@ static void fuse_cmd_lock(const char *cmd, char *args)
 
 static void fuse_cmd(const char* cmd, char *args)
 {
-    char *arguments = command_tokenize(args, 0x1ff - (args - cmd));
-    if(arguments)
-    {
-        for(size_t i = 0; i < sizeof(command_table) / sizeof(command_table[0]); ++i)
-        {
-            if(strcmp(args, command_table[i].name) == 0)
-            {
-                command_table[i].cb(args, arguments);
-                return;
-            }
-        }
-        if(args[0] != '\0')
-        {
-            iprintf("fuse: invalid command %s\n", args);
-        }
-        fuse_cmd_help(cmd, arguments);
-    }
+    // char *arguments = command_tokenize(args, 0x1ff - (args - cmd));
+    // if(arguments)
+    // {
+    //     for(size_t i = 0; i < sizeof(command_table) / sizeof(command_table[0]); ++i)
+    //     {
+    //         if(strcmp(args, command_table[i].name) == 0)
+    //         {
+    //             command_table[i].cb(args, arguments);
+    //             return;
+    //         }
+    //     }
+    //     if(args[0] != '\0')
+    //     {
+    //         iprintf("fuse: invalid command %s\n", args);
+    //     }
+    //     fuse_cmd_help(cmd, arguments);
+    // }
 }
 
 void fuse_init(void)

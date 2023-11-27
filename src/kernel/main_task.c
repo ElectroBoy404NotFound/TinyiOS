@@ -77,5 +77,5 @@ void pongo_main_task() {
 #endif
     iprintf("Running on: %s\n", hal_platform_name());
 
-    shell_main();
+    // shell_main();
 }

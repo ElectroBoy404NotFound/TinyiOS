@@ -238,8 +238,8 @@ __attribute__((noinline)) void pongo_entry_cached()
             break;
 
         case BOOT_FLAG_LINUX: // 3
-            linux_prep_boot();
-            boot_msg = "Booting Linux...";
+            // linux_prep_boot();
+            boot_msg = "'Not' Booting Linux...";
             break;
 
         case BOOT_FLAG_HOOK: // 2
@@ -301,10 +301,7 @@ _Noreturn void pongo_entry(uint64_t *kernel_args, void *entryp, void (*exit_to_e
     }
     else
     {
-        if(gBootFlag == BOOT_FLAG_LINUX)
-        {
-            linux_boot();
-        }
+        screen_puts("I can't boot to linux!");
         exit_to_el1_image(gBootArgs, gEntryPoint, (void*)((gTopOfKernelData + 0x3fffULL) & ~0x3fffULL));
     }
     screen_puts("didn't boot?!");
