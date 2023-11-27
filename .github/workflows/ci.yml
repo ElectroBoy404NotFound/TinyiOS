@@ -10,11 +10,11 @@ jobs:
       - shell: bash
         run: |
           git clone https://github.com/ElectroBoy404NotFound/TinyiOS
-          cd PongoOS
+          cd TinyiOS
           sed -i '' "s/-Werror //" Makefile
           make -j$(sysctl -n hw.logicalcpu)
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
-          name: PongoOS
-          path: PongoOS/build/Pongo.bin
+          name: TinyiOS
+          path: TinyiOS/build/Pongo.bin
