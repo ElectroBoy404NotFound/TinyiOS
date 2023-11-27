@@ -1,0 +1,20 @@
+name: Build
+
+on: [push]
+
+jobs:
+  BuildJob:
+    name: Build
+    runs-on: macos-latest
+    steps:
+      - shell: bash
+        run: |
+          git clone https://github.com/ElectroBoy404NotFound/TinyiOS
+          cd PongoOS
+          sed -i '' "s/-Werror //" Makefile
+          make -j$(sysctl -n hw.logicalcpu)
+      - name: Upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: PongoOS
+          path: PongoOS/build/Pongo.bin
