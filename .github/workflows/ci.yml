@@ -13,6 +13,7 @@ jobs:
           cd TinyiOS
           rm -rf newlib
           git clone https://github.com/checkra1n/newlib.git
+          git submodule update
           sed -i '' "s/-Werror //" Makefile
           make -j$(sysctl -n hw.logicalcpu)
       - name: Upload
