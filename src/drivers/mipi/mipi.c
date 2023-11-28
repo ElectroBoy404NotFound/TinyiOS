@@ -100,7 +100,7 @@ void mipi_init() {
         uint64_t mipi_reg = dt_get_u32_prop("mipi-dsim", "reg");
         mipi_reg += gIOBase;
         gmipi_reg = mipi_reg;
-        command_register("mipi", "mipi tools", mipi_cmd);
+        // command_register("mipi", "mipi tools", mipi_cmd);
     }
 }
 

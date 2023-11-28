@@ -296,8 +296,9 @@ _Noreturn void pongo_entry(uint64_t *kernel_args, void *entryp, void (*exit_to_e
         {
             __asm__ volatile("smc 0"); // elevate to EL3
         }
+        screen_puts("I cant jump to loader_xfer_recv_data");
         // XXX: We should really replace loader_xfer_recv_data with something dedicated here.
-        jump_to_image_extended(((uint64_t)loader_xfer_recv_data) - kCacheableView + 0x800000000, (uint64_t)gBootArgs, 0, (uint64_t)gEntryPoint);
+        // jump_to_image_extended(((uint64_t)loader_xfer_recv_data) - kCacheableView + 0x800000000, (uint64_t)gBootArgs, 0, (uint64_t)gEntryPoint);
     }
     else
     {

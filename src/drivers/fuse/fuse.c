@@ -176,5 +176,5 @@ void fuse_init(void)
             panic("Fuse: Unsupported SoC");
     }
 
-    command_register("fuse", "fuse array access", fuse_cmd);
+    // command_register("fuse", "fuse array access", fuse_cmd);
 }
